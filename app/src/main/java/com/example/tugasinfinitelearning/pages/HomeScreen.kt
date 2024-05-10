@@ -45,6 +45,19 @@ fun HomeScreen(
                 color = fontprimary,
                 fontFamily = interBold
             )
+            Text(
+                text = "Home List",
+                fontSize = 34.sp,
+                color = fontprimary,
+                fontFamily = interBold
+            )
+            Text(
+                text = "Home List",
+                fontSize = 34.sp,
+                color = fontprimary,
+                fontFamily = interBold
+            )
+
 
         }
     }
