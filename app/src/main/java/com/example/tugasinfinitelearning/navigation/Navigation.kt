@@ -12,6 +12,7 @@ import com.example.tugasinfinitelearning.datamodel.photos
 import com.example.tugasinfinitelearning.datamodel.title
 import com.example.tugasinfinitelearning.pages.BottomScreen
 import com.example.tugasinfinitelearning.pages.DetailScreenColumn
+import com.example.tugasinfinitelearning.pages.DetailScreenRow
 import com.example.tugasinfinitelearning.pages.HomeScreen
 import com.example.tugasinfinitelearning.pages.SplashScreen
 
@@ -35,8 +36,16 @@ fun Navigation() {
                 imageId = photos,
                 titleHome = title,
                 genreHome = genre,
-                navController = navController
+                titleHome2 = title,
+                genreHome2 = genre,
+                navController
             )
+//            HomeScreen(
+//                imageId = photos,
+//                titleHome = title,
+//                genreHome = genre,
+//                navController = navController
+//            )
         }
         composable("${NavigationScreen.DetailScreenColumn.name}/{index}", arguments = listOf(
             navArgument(name = "index") {
@@ -49,6 +58,19 @@ fun Navigation() {
                 titleanime = title,
                 description = description,
                 navController = navController
+            )
+        }
+        composable("${NavigationScreen.DetailScreenRow.name}/{index2}", arguments = listOf(
+            navArgument(name = "index2") {
+                type = NavType.IntType
+            }
+        )) {index ->
+            DetailScreenRow(
+                itemIndex = index.arguments?.getInt("index2"),
+                photos2 = photos,
+                titleanime2 = title,
+                description2 = description,
+                navController
             )
         }
     }

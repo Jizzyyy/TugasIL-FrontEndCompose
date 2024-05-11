@@ -32,38 +32,35 @@ fun DetailScreenRow(
     description2: Array<String>,
     navController: NavController
 ) {
-    Box(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(Color.White)
+    Column(
+        modifier = Modifier.fillMaxHeight()
     ) {
+        Image(
+            modifier = Modifier
+                .fillMaxWidth()
+                .size(295.dp),
+            painter = painterResource(id = photos2[itemIndex!!]),
+            contentDescription = null
+        )
+        Spacer(modifier = Modifier.height(10.dp))
         Column(
-            modifier = Modifier.fillMaxHeight()
+            modifier = Modifier.padding(horizontal = 16.dp)
         ) {
-            Image(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .size(295.dp),
-                painter = painterResource(id = photos2[itemIndex!!]),
-                contentDescription = null
+            Text(
+                text = titleanime2[itemIndex],
+                fontSize = 24.sp,
+                color = fontprimary,
+                fontFamily = interBold
             )
             Spacer(modifier = Modifier.height(10.dp))
-            Column(
-                modifier = Modifier.padding(horizontal = 16.dp)
-            ) {
-                Text(
-                    text = titleanime2[itemIndex],
-                    fontSize = 24.sp,
-                    color = fontprimary,
-                    fontFamily = interBold
-                )
-                Text(
-                    text = description2[itemIndex],
-                    fontSize = 18.sp,
-                    color = fontprimary,
-                    fontFamily = interRegular
-                )
-            }
+
+            Text(
+                text = description2[itemIndex],
+                fontSize = 18.sp,
+                color = fontprimary,
+                fontFamily = interRegular
+            )
         }
     }
+
 }

@@ -91,20 +91,19 @@ fun BottomScreen() {
             }
         },
         content = {
-            NavHost(
-                navController = navController,
-                startDestination = BottomNavigationScreen.HomeScreen.title
-            ) {
-                composable(BottomNavigationScreen.HomeScreen.title) {
-                    HomeScreen(
-                        imageId = photos,
-                        titleHome = title,
-                        genreHome = genre,
-                        navController
-                    )
-                }
-
-            }
+//            NavHost(
+//                navController = navController,
+//                startDestination = BottomNavigationScreen.HomeScreen.title
+//            ) {
+//                composable(BottomNavigationScreen.HomeScreen.title) {
+//                    HomeScreen(
+//                        imageId = photos,
+//                        titleHome = title,
+//                        genreHome = genre,
+//                        navController
+//                    )
+//                }
+//            }
         }
     )
 }
