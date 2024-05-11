@@ -22,11 +22,11 @@ fun Navigation() {
     val navController = rememberNavController()
     NavHost(
         navController = navController,
-        startDestination = NavigationScreen.HomeScreen.name
+        startDestination = NavigationScreen.SplashScreen.name
     )
     {
         composable(NavigationScreen.SplashScreen.name) {
-            SplashScreen(navController = rememberNavController())
+            SplashScreen(navController = navController)
         }
         composable(NavigationScreen.BottomScreen.name) {
             BottomScreen()
@@ -40,12 +40,6 @@ fun Navigation() {
                 genreHome2 = genre,
                 navController
             )
-//            HomeScreen(
-//                imageId = photos,
-//                titleHome = title,
-//                genreHome = genre,
-//                navController = navController
-//            )
         }
         composable("${NavigationScreen.DetailScreenColumn.name}/{index}", arguments = listOf(
             navArgument(name = "index") {
