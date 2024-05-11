@@ -52,7 +52,7 @@ fun HomeScreen(
             TopAppBar(
                 title = {
                     Text(
-                        text = "Home Screen",
+                        text = "Anime List",
                         fontSize = 20.sp,
                         color = fontprimary,
                         fontFamily = interBold

@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowDropDown
 import androidx.compose.material3.Icon
@@ -38,7 +39,7 @@ fun SplashScreen(navController: NavController) {
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Image(painter = painterResource(id = R.drawable.earth), contentDescription = null)
+        Image(modifier = Modifier.size(250.dp), painter = painterResource(id = R.drawable.logo), contentDescription = null)
     }
     LaunchedEffect(key1 = true) {
         delay(3000)
@@ -46,3 +47,8 @@ fun SplashScreen(navController: NavController) {
     }
 }
 
+@Preview
+@Composable
+fun Preview99() {
+    SplashScreen(navController = rememberNavController())
+}

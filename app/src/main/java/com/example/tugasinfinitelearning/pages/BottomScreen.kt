@@ -113,6 +113,9 @@ fun BottomScreen() {
                 composable(BottomNavigationScreen.WishlistScreen.title) {
                     WishlistScreen(imageId2 = photos, titleAnimeWishlist = title, navController)
                 }
+                composable(BottomNavigationScreen.AccountScreen.title) {
+                    AccountScreen(navController)
+                }
 
 
                 composable("${NavigationScreen.DetailScreenColumn.name}/{index}",

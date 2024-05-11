@@ -1,5 +1,6 @@
 package com.example.tugasinfinitelearning.pages
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -14,7 +15,9 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
+import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -26,25 +29,43 @@ import androidx.navigation.NavController
 import com.example.tugasinfinitelearning.datamodel.photos
 import com.example.tugasinfinitelearning.navigation.NavigationScreen
 import com.example.tugasinfinitelearning.ui.theme.fontprimary
+import com.example.tugasinfinitelearning.ui.theme.grey
+import com.example.tugasinfinitelearning.ui.theme.interBold
 import com.example.tugasinfinitelearning.ui.theme.interMedium
 import com.example.tugasinfinitelearning.ui.theme.interSemiBold
 
+@SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun WishlistScreen(
     imageId2: Array<Int>,
     titleAnimeWishlist: Array<String>,
     navController: NavController
 ) {
-
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(Color.White),
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                title = {
+                    Text(
+                        text = "Lazy Grid",
+                        fontSize = 20.sp,
+                        color = fontprimary,
+                        fontFamily = interBold
+                    )
+                },
+                backgroundColor = grey
+            )
+        }
     ) {
-        LazyVerticalGrid(columns = GridCells.Fixed(2), modifier = Modifier.padding(16.dp)) {
-            val itemCount = imageId2.size
-            items(itemCount) {
-                GridItem(itemIndex3 = it, photosAnime = imageId2, titleAnime = titleAnimeWishlist, navController)
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(Color.White),
+        ) {
+            LazyVerticalGrid(columns = GridCells.Fixed(2), modifier = Modifier.padding(16.dp)) {
+                val itemCount = imageId2.size
+                items(itemCount) {
+                    GridItem(itemIndex3 = it, photosAnime = imageId2, titleAnime = titleAnimeWishlist, navController)
+                }
             }
         }
     }
