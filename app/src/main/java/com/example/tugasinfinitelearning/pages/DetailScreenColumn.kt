@@ -31,9 +31,8 @@ import com.example.tugasinfinitelearning.ui.theme.interSemiBold
 fun DetailScreenColumn(
     itemIndex: Int?,
     photos: Array<Int>,
-    place: Array<String>,
+    titleanime: Array<String>,
     description: Array<String>,
-    address: Array<String>,
     navController: NavController) {
     Box(
         modifier = Modifier
@@ -55,22 +54,18 @@ fun DetailScreenColumn(
                 modifier = Modifier.padding(horizontal = 16.dp)
             ) {
                 Text(
-                    text = place[itemIndex],
+                    text = titleanime[itemIndex],
                     fontSize = 24.sp,
                     color = fontprimary,
                     fontFamily = interBold
                 )
+                Spacer(modifier = Modifier.height(10.dp))
+
                 Text(
                     text = description[itemIndex],
                     fontSize = 18.sp,
                     color = fontprimary,
                     fontFamily = interRegular
-                )
-                Text(
-                    text = address[itemIndex],
-                    fontSize = 18.sp,
-                    color = fontprimary,
-                    fontFamily = interSemiBold
                 )
             }
         }

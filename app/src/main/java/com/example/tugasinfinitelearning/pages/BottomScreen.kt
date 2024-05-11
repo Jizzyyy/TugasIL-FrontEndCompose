@@ -19,15 +19,27 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.example.tugasinfinitelearning.datamodel.genre
+import com.example.tugasinfinitelearning.datamodel.photos
+import com.example.tugasinfinitelearning.datamodel.title
 import com.example.tugasinfinitelearning.ui.theme.primary
 import com.example.tugasinfinitelearning.ui.theme.primary2
 
-sealed class BottomNavigationScreen(val title: String, val filledIcon: ImageVector, val outlinedIcon: ImageVector) {
-    data object HomeScreen:BottomNavigationScreen("Home", Icons.Filled.Home, Icons.Outlined.Home)
-    data object WishlistScreen:BottomNavigationScreen("Wishlist", Icons.Filled.Favorite, Icons.Outlined.Favorite)
-    data object AccountScreen:BottomNavigationScreen("Account", Icons.Filled.AccountCircle, Icons.Outlined.AccountCircle)
+sealed class BottomNavigationScreen(
+    val title: String,
+    val filledIcon: ImageVector,
+    val outlinedIcon: ImageVector
+) {
+    data object HomeScreen : BottomNavigationScreen("Home", Icons.Filled.Home, Icons.Outlined.Home)
+    data object WishlistScreen :
+        BottomNavigationScreen("Wishlist", Icons.Filled.Favorite, Icons.Outlined.Favorite)
+
+    data object AccountScreen :
+        BottomNavigationScreen("Account", Icons.Filled.AccountCircle, Icons.Outlined.AccountCircle)
 }
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
@@ -79,7 +91,20 @@ fun BottomScreen() {
             }
         },
         content = {
+            NavHost(
+                navController = navController,
+                startDestination = BottomNavigationScreen.HomeScreen.title
+            ) {
+                composable(BottomNavigationScreen.HomeScreen.title) {
+                    HomeScreen(
+                        imageId = photos,
+                        titleHome = title,
+                        genreHome = genre,
+                        navController
+                    )
+                }
 
+            }
         }
     )
 }

@@ -20,13 +20,14 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.tugasinfinitelearning.R
+import com.example.tugasinfinitelearning.navigation.NavigationScreen
 import com.example.tugasinfinitelearning.ui.theme.interBold
 import com.example.tugasinfinitelearning.ui.theme.interSemiBold
 import com.example.tugasinfinitelearning.ui.theme.primary
 import kotlinx.coroutines.delay
 
 @Composable
-fun SplashScreen(navController: NavController, onSplashScreenFinished: () -> Unit) {
+fun SplashScreen(navController: NavController) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -38,13 +39,6 @@ fun SplashScreen(navController: NavController, onSplashScreenFinished: () -> Uni
     }
     LaunchedEffect(key1 = true) {
         delay(3000)
-        onSplashScreenFinished()
-    }
-}
-
-@Preview
-@Composable
-fun Preview() {
-    SplashScreen(navController = rememberNavController()) {
+        navController.navigate(NavigationScreen.HomeScreen.name)
     }
 }

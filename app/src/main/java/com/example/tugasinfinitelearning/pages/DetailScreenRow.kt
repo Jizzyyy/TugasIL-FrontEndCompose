@@ -28,9 +28,8 @@ import com.example.tugasinfinitelearning.ui.theme.interSemiBold
 fun DetailScreenRow(
     itemIndex: Int?,
     photos2: Array<Int>,
-    place2: Array<String>,
+    titleanime2: Array<String>,
     description2: Array<String>,
-    address2: Array<String>,
     navController: NavController
 ) {
     Box(
@@ -53,7 +52,7 @@ fun DetailScreenRow(
                 modifier = Modifier.padding(horizontal = 16.dp)
             ) {
                 Text(
-                    text = place2[itemIndex],
+                    text = titleanime2[itemIndex],
                     fontSize = 24.sp,
                     color = fontprimary,
                     fontFamily = interBold
@@ -63,12 +62,6 @@ fun DetailScreenRow(
                     fontSize = 18.sp,
                     color = fontprimary,
                     fontFamily = interRegular
-                )
-                Text(
-                    text = address2[itemIndex],
-                    fontSize = 18.sp,
-                    color = fontprimary,
-                    fontFamily = interSemiBold
                 )
             }
         }
