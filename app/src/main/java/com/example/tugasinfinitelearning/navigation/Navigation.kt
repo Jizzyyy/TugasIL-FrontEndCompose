@@ -15,6 +15,7 @@ import com.example.tugasinfinitelearning.pages.DetailScreenColumn
 import com.example.tugasinfinitelearning.pages.DetailScreenRow
 import com.example.tugasinfinitelearning.pages.HomeScreen
 import com.example.tugasinfinitelearning.pages.SplashScreen
+import com.example.tugasinfinitelearning.pages.WishlistScreen
 
 
 @Composable
@@ -22,7 +23,7 @@ fun Navigation() {
     val navController = rememberNavController()
     NavHost(
         navController = navController,
-        startDestination = NavigationScreen.SplashScreen.name
+        startDestination = NavigationScreen.BottomScreen.name
     )
     {
         composable(NavigationScreen.SplashScreen.name) {
@@ -41,11 +42,14 @@ fun Navigation() {
                 navController
             )
         }
+        composable(NavigationScreen.WishlistScreen.name) {
+            WishlistScreen(imageId2 = photos, titleAnimeWishlist = title, navController)
+        }
         composable("${NavigationScreen.DetailScreenColumn.name}/{index}", arguments = listOf(
             navArgument(name = "index") {
                 type = NavType.IntType
             }
-        )) {index ->
+        )) { index ->
             DetailScreenColumn(
                 itemIndex = index.arguments?.getInt("index"),
                 photos = photos,
@@ -58,7 +62,7 @@ fun Navigation() {
             navArgument(name = "index2") {
                 type = NavType.IntType
             }
-        )) {index ->
+        )) { index ->
             DetailScreenRow(
                 itemIndex = index.arguments?.getInt("index2"),
                 photos2 = photos,

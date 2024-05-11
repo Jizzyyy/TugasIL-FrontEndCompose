@@ -110,11 +110,17 @@ fun BottomScreen() {
                         navController
                     )
                 }
-                composable("${NavigationScreen.DetailScreenColumn.name}/{index}", arguments = listOf(
-                    navArgument(name = "index") {
-                        type = NavType.IntType
-                    }
-                )) {index ->
+                composable(BottomNavigationScreen.WishlistScreen.title) {
+                    WishlistScreen(imageId2 = photos, titleAnimeWishlist = title, navController)
+                }
+
+
+                composable("${NavigationScreen.DetailScreenColumn.name}/{index}",
+                    arguments = listOf(
+                        navArgument(name = "index") {
+                            type = NavType.IntType
+                        }
+                    )) { index ->
                     DetailScreenColumn(
                         itemIndex = index.arguments?.getInt("index"),
                         photos = photos,
@@ -127,12 +133,25 @@ fun BottomScreen() {
                     navArgument(name = "index2") {
                         type = NavType.IntType
                     }
-                )) {index ->
+                )) { index ->
                     DetailScreenRow(
                         itemIndex = index.arguments?.getInt("index2"),
                         photos2 = photos,
                         titleanime2 = title,
                         description2 = description,
+                        navController
+                    )
+                }
+                composable("${NavigationScreen.DetailScreenGrid.name}/{index3}", arguments = listOf(
+                    navArgument(name = "index3") {
+                        type = NavType.IntType
+                    }
+                )) { index ->
+                    DetailScreenGrid(
+                        itemIndex = index.arguments?.getInt("index3"),
+                        photos3 = photos,
+                        titleanime3 = title,
+                        description3 = description,
                         navController
                     )
                 }

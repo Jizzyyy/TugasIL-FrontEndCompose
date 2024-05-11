@@ -5,7 +5,9 @@ enum class NavigationScreen {
     BottomScreen,
     HomeScreen,
     DetailScreenColumn,
-    DetailScreenRow;
+    DetailScreenRow,
+    DetailScreenGrid,
+    WishlistScreen;
 
 
     fun fromRoute(route: String): NavigationScreen =
@@ -15,6 +17,8 @@ enum class NavigationScreen {
             HomeScreen.name -> HomeScreen
             DetailScreenColumn.name -> DetailScreenColumn
             DetailScreenRow.name -> DetailScreenRow
+            DetailScreenGrid.name -> DetailScreenGrid
+            WishlistScreen.name -> WishlistScreen
             else -> throw IllegalArgumentException("Route $route is not recognized")
         }
 }
